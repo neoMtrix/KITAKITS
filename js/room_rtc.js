@@ -1,4 +1,4 @@
-const APP_ID = '3a5e5ac1c6774998b5346ed40b6e0ccf';
+const APP_ID = '';
 
 let uid = sessionStorage.getItem('uid');
 if (!uid) {
@@ -140,6 +140,23 @@ let toggleScreen = async (e) => {
 		screenButton.classList.add('active');
 		cameraButton.classList.remove('active');
 		cameraButton.style.display = 'none';
+
+		localScreenTracks = await AgoraRTC.createScreenVideoTrack();
+
+		document.getElementById(`user-container-${uid}`).remove();
+		displayFrame.style.display = 'block';
+
+		let player = `<div class="video__container" id="user-container-${uid}">
+                       <div class="video-player" id="user-${uid}"></div> 
+                    </div>`;
+
+		displayFrame.insertAdjacentHTML('beforeend', player);
+		document
+			.getElementById(`user-container-${uid}`)
+			.addEventListener('click', expandVideoFrame);
+
+		userIdInDisplayFrame = `user-container-${uid}`;
+		localScreenTracks.play(`user-${uid}`);
 	} else {
 		sharingScreen = false;
 		cameraButton.style.display = 'block';
