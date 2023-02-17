@@ -126,7 +126,7 @@
 
 .message__author__bot {
 	margin-right: 10px;
-	color: #a52aca !important;
+	color: #0174cc !important;
 }
 
 .message__text {
@@ -204,7 +204,7 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	border: 2px solid #b366f9;
+	border: 2px solid #0174cc;
 	border-radius: 50%;
 	cursor: pointer;
 	overflow: hidden;
@@ -302,7 +302,7 @@
 	background-color: #1a1a1a60;
 	padding: 1rem;
 	left: 50%;
-	display: flex;
+	display: none;
 	gap: 1rem;
 	transform: translateX(-50%);
 }
@@ -332,5 +332,20 @@
 .stream__actions button.active,
 .stream__actions a:hover,
 .stream__actions button:hover {
-	background-color: #845695;
+	background-color: #0174cc;
+}
+
+#join-btn {
+	background-color: #0174cc;
+	font-size: 18px;
+	padding: 25px 50px;
+	border: none;
+	color: #fff;
+
+	position: fixed;
+	bottom: 1rem;
+	border-radius: 8px;
+	left: 50%;
+	transform: translateX(-50%);
+	cursor: pointer;
 }
